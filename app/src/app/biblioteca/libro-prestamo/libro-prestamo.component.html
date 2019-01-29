@@ -1,0 +1,24 @@
+<div>
+  <h1>Libros</h1>
+  <ul>
+    <li *ngFor="let libro of libros">
+        Libro {{libro.id}}
+        <button [routerLink]="['/biblioteca/libro-prestamo-list',libro.id]" routerLinkActive="router-link-active">Ver Prestamos</button>
+        <button (click)="prestarLibro(libro)">Prestar Libro</button>
+    </li>
+  </ul>
+</div>
+<form [hidden] = "mostrarPrestamo" > Datos Prestamo:
+    <br>
+    <label for = "txtPersona">Persona: </label>
+    <input type="text" name = "id" id ="txtPersona" [(ngModel)] = "prestamo.persona">
+    <br>
+    <label for = "txtFechaPrestamo">Fecha Prestamo: </label>
+    <input type="text" name = "nombre" id ="txtFechaPrestamo" [(ngModel)] = "prestamo.fechaPrestamo">
+    <br>
+    <label for = "txtFechaVenc">Fecha Vencimiento: </label>
+    <input type="text" name = "ISBN" id ="txtFechaVenc" [(ngModel)] = "prestamo.fechaVencimiento">
+    <br>
+    <button (click)="registrarPrestamo()">Agregar</button>
+</form>
+<button [routerLink]="['/menu']" routerLinkActive="router-link-active" >Volver al menu</button>

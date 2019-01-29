@@ -1,0 +1,18 @@
+<div>
+    <h1>Editar Libro</h1>
+    <p>Mi Libro: {{idDelLibro}}</p>
+    <form>
+        <label for = "txtNombre">Nombre: </label>
+        <input type="text" name = "nombre" id ="txtNombre" [(ngModel)] = "libro.nombre">
+        <br>
+        <label for = "txtISBN">ISBN: </label>
+        <input type="text" name = "ISBN" id ="txtISBN" [(ngModel)] = "libro.isbn">
+        <br>
+        <label for = "txtAutores">Autores: </label>
+        <input type="text" name = "Autores" id ="txtAutores" [(ngModel)] = "libro.autores">
+        <br>
+        <button (click)="editarLibro(libro)">Editar</button>
+    </form>
+    <br>						
+    <button [routerLink]="['/biblioteca/libro-list']" routerLinkActive="router-link-active" >Volver</button>
+</div>

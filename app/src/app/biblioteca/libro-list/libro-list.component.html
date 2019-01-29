@@ -1,0 +1,14 @@
+<div>
+  <h1>Libros</h1>
+  <ul>
+    <li *ngFor="let libro of libros">
+        Libro {{libro.id}}
+        <button (click)="verLibro(libro)">Ver</button>
+        <button [routerLink]="['/biblioteca/libro-edit',libro.id]" routerLinkActive="router-link-active" >Editar</button>
+        <button (click)="borrarLibro(libro)">Borrar</button>
+    </li>
+  </ul>
+  <button [routerLink]="['/biblioteca/libro-add']" routerLinkActive="router-link-active">Agregar Libro </button>
+  <app-libro-view [hidden] = "hideView" [libro]=libroSeleccionado></app-libro-view>
+  <button [routerLink]="['/menu']" routerLinkActive="router-link-active" >Volver al menu</button>
+</div>

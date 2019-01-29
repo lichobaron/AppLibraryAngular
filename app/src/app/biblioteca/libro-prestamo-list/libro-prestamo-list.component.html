@@ -1,0 +1,19 @@
+<div>
+  <h2>Prestamos Libro {{idDelLibro}}: </h2>
+  <ul>
+    <li *ngFor="let prestamo of prestamos">
+        - Id: {{prestamo.id}}
+        - Fecha Prestamo: {{prestamo.fechaPrestamo}}
+        - Fecha Vencimiento: {{prestamo.fechaVencimiento}}
+        - Fecha Devolucion: {{prestamo.fechaDevolucion}}
+        - Persona : {{prestamo.persona}} 
+        <button (click)="devolverLibro(prestamo.id)">Devolver Copia Libro</button> 
+    </li>
+  </ul>
+  <form [hidden] = "mostrarDevolucion" >
+      <label for = "txtFechaDevolucion">Fecha Devolucion: </label>
+      <input type="text" name = "id" id ="txtFechaDevolucion" [(ngModel)] = "this.devolucion"><br>
+      <button (click)="registrarDevolucion()">Devolver</button>
+  </form>
+</div>
+<button [routerLink]="['/biblioteca/libro-prestamo']" routerLinkActive="router-link-active" >Volver</button>
